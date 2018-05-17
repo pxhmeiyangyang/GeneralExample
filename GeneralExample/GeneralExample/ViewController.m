@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "FMDBManager.h"
 @interface ViewController ()
 
 @end
@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [FMDBManager creatTableWithTableName:@"Person" arFields:@[@"name",@"age",@"sex"] arFieldsType:@[@"text",@"text",@"text"]];
 }
 
 
