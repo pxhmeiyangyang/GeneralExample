@@ -89,6 +89,45 @@
     }];
 }
 
+/**
+ 删除数据 -- 删
+ 
+ @param tableName 表名称
+ @param conditionKey 筛选字段
+ @param conditionValue 筛选对应的值
+ */
++(void)deleteFromTable:(NSString* )tableName conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue{
+    NSString* sql = [NSString stringWithFormat:@"DELETE FROM '%@' WHERE %@ = ?",tableName,conditionKey];
+    FMDatabaseQueue* db = [self DataBase];
+    [db inDatabase:^(FMDatabase * _Nonnull db) {
+        NSError* error;
+        if ([db executeUpdate:sql values:@[conditionValue] error:&error]){
+            NSLog(@"table : %@ delect success !",tableName);
+        }else{
+            NSLog(@"table : %@ delect fail !",tableName);
+        }
+    }];
+}
+
+
+/**
+ 丢弃无用的表 -- 删
+ 
+ @param tableName 表名称
+ */
++(void)dropTable:(NSString* )tableName{
+    NSString* sql = [NSString stringWithFormat:@"DROP TABLE %@",tableName];
+    FMDatabaseQueue* db = [self DataBase];
+    [db inDatabase:^(FMDatabase * _Nonnull db) {
+        NSError* error;
+        if([db executeUpdate:sql values:nil error:&error]){
+            NSLog(@"table : %@ drop success !",tableName);
+        }else{
+            NSLog(@"table : %@ drop fail !",tableName);
+        }
+    }];
+}
+
 
 /**
  修改表数据 -- 改
@@ -172,44 +211,6 @@
     return [arFieldsVaules copy];
 }
 
-/**
- 删除数据 -- 删
-
- @param tableName 表名称
- @param conditionKey 筛选字段
- @param conditionValue 筛选对应的值
- */
-+(void)deleteFromTable:(NSString* )tableName conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue{
-    NSString* sql = [NSString stringWithFormat:@"DELETE FROM '%@' WHERE %@ = ?",tableName,conditionKey];
-    FMDatabaseQueue* db = [self DataBase];
-    [db inDatabase:^(FMDatabase * _Nonnull db) {
-        NSError* error;
-        if ([db executeUpdate:sql values:@[conditionValue] error:&error]){
-            NSLog(@"table : %@ delect success !",tableName);
-        }else{
-            NSLog(@"table : %@ delect fail !",tableName);
-        }
-    }];
-}
-
-
-/**
- 丢弃无用的表 -- 删
-
- @param tableName 表名称
- */
-+(void)dropTable:(NSString* )tableName{
-    NSString* sql = [NSString stringWithFormat:@"DROP TABLE %@",tableName];
-    FMDatabaseQueue* db = [self DataBase];
-    [db inDatabase:^(FMDatabase * _Nonnull db) {
-        NSError* error;
-        if([db executeUpdate:sql values:nil error:&error]){
-            NSLog(@"table : %@ drop success !",tableName);
-        }else{
-            NSLog(@"table : %@ drop fail !",tableName);
-        }
-    }];
-}
 
 /**
  新增加表字段

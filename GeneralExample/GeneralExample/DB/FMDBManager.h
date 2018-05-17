@@ -44,6 +44,23 @@
 
 
 /**
+ 删除数据 -- 删
+ 
+ @param tableName 表名称
+ @param conditionKey 筛选字段
+ @param conditionValue 筛选对应的值
+ */
++(void)deleteFromTable:(NSString* )tableName conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue;
+
+
+/**
+ 丢弃无用的表 -- 删
+ 
+ @param tableName 表名称
+ */
++(void)dropTable:(NSString* )tableName;
+
+/**
  修改表数据 -- 改
  
  @param tableName 表名称
@@ -73,22 +90,6 @@
  */
 +(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(NSString* )conditionsValue;
 
-/**
- 删除数据 -- 删
- 
- @param tableName 表名称
- @param conditionKey 筛选字段
- @param conditionValue 筛选对应的值
- */
-+(void)deleteFromTable:(NSString* )tableName conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue;
-
-
-/**
- 丢弃无用的表 -- 删
- 
- @param tableName 表名称
- */
-+(void)dropTable:(NSString* )tableName;
 
 /**
  新增加表字段
