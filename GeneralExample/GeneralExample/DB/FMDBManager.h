@@ -7,17 +7,116 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "FMDB.h"
 @interface FMDBManager : NSObject
 
 /**
- 创建表表格
+ 获取FMDB文件路径
 
+ @return 返回FMDB文件路径
+ */
++(NSString* )FMDBPath;
+
+/**
+ 获取数据库对象
+
+ @return 返回获取到的数据库对象
+ */
++(FMDatabaseQueue* )DataBase;
+
+/**
+ 创建表表格
+ 
  @param tableName 表名称
  @param arFields 表字段
  @param arFieldsType 表名称
  */
 +(void)creatTableWithTableName:(NSString* )tableName arFields:(NSArray<NSString* >* )arFields arFieldsType:(NSArray<NSString* >* )arFieldsType;
+
+
+/**
+ 在表中插入数据 -- 增
+ 
+ @param tableName 表名称
+ @param dicFields key:value 键值对 key为表字段 value为对应的字段值
+ */
++(void)insertDataToTable:(NSString* )tableName dicFields:(NSDictionary* )dicFields;
+
+
+/**
+ 修改表数据 -- 改
+ 
+ @param tableName 表名称
+ @param dicFields key:value键值对 key为表字段 value为要修改的值
+ @param conditionKey 过滤筛选字段
+ @param conditionValue 过滤筛选字段对应的value
+ */
++(void)modifyDataToTable:(NSString* )tableName dicFields:(NSDictionary* )dicFields conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue;
+
+/**
+ 查询数据 -- 查
+ 
+ @param tableName 表名称
+ @param arFieldsKeys 查询字段
+ @return 查询到所有key value
+ */
++(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys;
+
+/** 查询数据 -- 查
+ 查询具体关键字的方法
+ 
+ @param tableName 表名称
+ @param arFieldsKeys 查询的所有字段
+ @param conditionsKey 筛选条件关键字
+ @param conditionsValue 筛选条件的值
+ @return 返回所有查询到的key value
+ */
++(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(NSString* )conditionsValue;
+
+/**
+ 删除数据 -- 删
+ 
+ @param tableName 表名称
+ @param conditionKey 筛选字段
+ @param conditionValue 筛选对应的值
+ */
++(void)deleteFromTable:(NSString* )tableName conditionKey:(NSString* )conditionKey conditionValue:(id)conditionValue;
+
+
+/**
+ 丢弃无用的表 -- 删
+ 
+ @param tableName 表名称
+ */
++(void)dropTable:(NSString* )tableName;
+
+/**
+ 新增加表字段
+ 
+ @param tableName 表名称
+ @param newField 新增表字段
+ @param arFields 所有字段
+ @param arFieldsType 所有字段的属性
+ */
++(void)changeTable:(NSString* )tableName newField:(NSString* )newField arFields:(NSArray<NSString* >* )arFields arFieldsType:(NSArray<NSString* >* )arFieldsType;
+
+
+/**
+ 导入数据
+ 
+ @param oldTableName 原有表名
+ @param newTableName 导入表名
+ */
++(void)importData:(NSString* )oldTableName newTableName:(NSString* )newTableName;
+
+/**
+ 给表添加新字段
+ 
+ @param tableName 表名称
+ @param addField 新增字段
+ @param addFieldType 新增字段属性
+ */
++(void)changeTable:(NSString* )tableName addField:(NSString* )addField addFieldType:(NSString* )addFieldType;
 
 @end
 
@@ -255,17 +354,17 @@
 //FMResultSet *set=[fmdb executeQuery:sql2];
 //
 //while ([set next]) {
-//    
+//
 //    NSUInteger pid=[set intForColumn:@"ID"];
-//    
+//
 //    NSString *name=[set stringForColumn:@"Name"];
-//    
+//
 //    NSString *datetime=[set stringForColumn:@"RegisterTime"];
-//    
+//
 //    NSDate*d=[self dateFromString:datetime];
-//    
+//
 //    NSString *dateTime2=[self stringFromDate:d];
-//    
+//
 //}
 //
 //(2)对于查询结果是标量
@@ -279,9 +378,9 @@
 //while([set next])
 //
 //{
-//    
+//
 //    count=[set intForColumnIndex:0];
-//    
+//
 //}
 //
 //
