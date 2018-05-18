@@ -141,12 +141,13 @@
     NSArray* arFieldsKeys = dicFields.allKeys;
     NSArray* arFieldsValues = dicFields.allValues;
     NSMutableArray* values = [NSMutableArray arrayWithArray:arFieldsValues];
+    [values addObject:conditionValue];
     NSString* sql = [NSString stringWithFormat:@"UPDATE %@ SET ",tableName];
     for(int i = 0;i < arFieldsKeys.count;i ++){
         if(i != arFieldsKeys.count - 1){
             sql = [sql stringByAppendingFormat:@"%@ = ?,",arFieldsKeys[i]];
         }else{
-            sql = [sql stringByAppendingFormat:@"%@ = ?,",arFieldsKeys[i]];
+            sql = [sql stringByAppendingFormat:@"%@ = ?",arFieldsKeys[i]];
         }
     }
     sql = [sql stringByAppendingFormat:@" WHERE %@ = ?",conditionKey];
