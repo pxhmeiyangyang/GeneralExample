@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _window.backgroundColor = UIColor.lightGrayColor;
+    _window.rootViewController = [MainTabbar sharedInstance];
+    [_window makeKeyAndVisible];
     return YES;
 }
 

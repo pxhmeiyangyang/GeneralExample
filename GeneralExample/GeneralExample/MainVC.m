@@ -1,26 +1,25 @@
 //
-//  ViewController.m
+//  MainVC.m
 //  GeneralExample
 //
-//  Created by pxh on 2018/5/16.
+//  Created by pxh on 2018/5/18.
 //  Copyright © 2018年 pxh. All rights reserved.
 //
 
-#import "ViewController.h"
-#import "FMDBManager.h"
-@interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "MainVC.h"
+
+@interface MainVC ()<UITableViewDelegate,UITableViewDataSource>
 
 @property(nonatomic,strong)UITableView* tableView;
 
 @property(nonatomic,strong)NSDictionary* data;
 @end
 
-@implementation ViewController
+@implementation MainVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.title = @"开发示例";
-//    [FMDBManager creatTableWithTableName:@"Person" arFields:@[@"name",@"age",@"sex"] arFieldsType:@[@"text",@"text",@"text"]];
     self.data = @{@"数据存储":@[@"FMDB"]};
     [self configureTableview];
 }
