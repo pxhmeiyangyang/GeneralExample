@@ -62,6 +62,7 @@
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
     NSArray* array = (NSArray* )[self.data allValues][indexPath.section];
     cell.textLabel.text = array[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 

@@ -10,6 +10,8 @@
 
 #import "MainVC.h"
 
+#import "LaunchMovieVW.h"
+
 @interface MainTabbar ()
 
 @end
@@ -34,6 +36,7 @@ static MainTabbar* sharedTabbar;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self configureLaunchMovie];
     [self setTabbar];
     [self configureSubviews];
 }
@@ -61,6 +64,13 @@ static MainTabbar* sharedTabbar;
     //set tabbarItem title font and text color
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12],NSForegroundColorAttributeName : [UIColor lightGrayColor]} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [UIFont systemFontOfSize:12],NSForegroundColorAttributeName : [UIColor blackColor]} forState:UIControlStateSelected];
+}
+
+- (void)configureLaunchMovie{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        LaunchMovieVW* launchMoview = [[LaunchMovieVW alloc] initWithFrame:UIScreen.mainScreen.bounds];
+        [[[UIApplication sharedApplication] keyWindow] addSubview:launchMoview];
+    });
 }
 
 @end

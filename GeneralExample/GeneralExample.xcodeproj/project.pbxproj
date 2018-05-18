@@ -23,6 +23,7 @@
 		F1DB2FDD20AE6D3000A5053E /* MainTabbar.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2FDC20AE6D3000A5053E /* MainTabbar.m */; };
 		F1DB2FE420AE70AE00A5053E /* GeneralRect.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2FE320AE70AE00A5053E /* GeneralRect.m */; };
 		F1DB2FE820AEBD9E00A5053E /* MainVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2FE720AEBD9E00A5053E /* MainVC.m */; };
+		F1DB2FEB20AECF5F00A5053E /* LaunchMovieVW.m in Sources */ = {isa = PBXBuildFile; fileRef = F1DB2FEA20AECF5F00A5053E /* LaunchMovieVW.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,8 @@
 		F1DB2FE520AE728100A5053E /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		F1DB2FE620AEBD9E00A5053E /* MainVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainVC.h; sourceTree = "<group>"; };
 		F1DB2FE720AEBD9E00A5053E /* MainVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainVC.m; sourceTree = "<group>"; };
+		F1DB2FE920AECF5F00A5053E /* LaunchMovieVW.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchMovieVW.h; sourceTree = "<group>"; };
+		F1DB2FEA20AECF5F00A5053E /* LaunchMovieVW.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchMovieVW.m; sourceTree = "<group>"; };
 		F4C50E7B1D5ABBBDE6BA2743 /* Pods-GeneralExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeneralExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeneralExample/Pods-GeneralExample.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -168,6 +171,8 @@
 				F1DB2FDC20AE6D3000A5053E /* MainTabbar.m */,
 				F1DB2FE620AEBD9E00A5053E /* MainVC.h */,
 				F1DB2FE720AEBD9E00A5053E /* MainVC.m */,
+				F1DB2FE920AECF5F00A5053E /* LaunchMovieVW.h */,
+				F1DB2FEA20AECF5F00A5053E /* LaunchMovieVW.m */,
 			);
 			path = GeneralExample;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DB2FEB20AECF5F00A5053E /* LaunchMovieVW.m in Sources */,
 				F1DB2FE420AE70AE00A5053E /* GeneralRect.m in Sources */,
 				F18331CC20AD68470028A5D8 /* FMDBManager.m in Sources */,
 				F1DB2FE820AEBD9E00A5053E /* MainVC.m in Sources */,
