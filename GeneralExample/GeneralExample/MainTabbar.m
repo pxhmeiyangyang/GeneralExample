@@ -53,7 +53,8 @@ static MainTabbar* sharedTabbar;
     mainVC.tabBarItem.image = [[UIImage imageNamed:@"button_dock1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     mainVC.tabBarItem.selectedImage = [[UIImage imageNamed:@"button_dock_select1"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]; //确保图片保持原色  不受tintColor影响
     mainVC.tabBarItem.titlePositionAdjustment = UIOffsetMake(0, 4);
-    self.viewControllers = @[mainVC];
+    UINavigationController* navi = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    self.viewControllers = @[navi];
 }
 
 - (void)setTabbar{

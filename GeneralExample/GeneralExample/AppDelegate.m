@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [self configureNavigation];
     _window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     _window.backgroundColor = UIColor.lightGrayColor;
     _window.rootViewController = [MainTabbar sharedInstance];
@@ -51,5 +52,23 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+//MARK:- configureNavigation
+
+/**
+ navigation 设置相关
+ */
+- (void)configureNavigation{
+    //bar tint color navi的基本颜色
+    [UINavigationBar appearance].barTintColor = [UIColor yellowColor];
+    //bar is translucent navi是否透明
+    [[UINavigationBar appearance] setTranslucent:false];
+    //bar tint color navi的tint color
+    [UINavigationBar appearance].tintColor = [UIColor blueColor];
+    //bar title text attributes
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor blackColor],
+                                                           NSFontAttributeName : [UIFont systemFontOfSize:12]}];
+    //statusBarStyle color
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
 
 @end
