@@ -195,12 +195,13 @@
  @param conditionsValue 筛选条件的值
  @return 返回所有查询到的key value
  */
-+(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(NSString* )conditionsValue{
++(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(id)conditionsValue{
     NSMutableArray* arFieldsVaules = [NSMutableArray array];
     NSString* sql = [NSString stringWithFormat:@"SELECT * FROM %@ WHERE %@ = ?",tableName,conditionsKey];
     FMDatabaseQueue* db = [self DataBase];
     [db inDatabase:^(FMDatabase * _Nonnull db) {
-        FMResultSet* rs = [db executeQuery:sql];
+        NSError* error;
+        FMResultSet* rs = [db executeQuery:sql values:@[conditionsValue] error:&error];
         while (rs.next) {
             NSMutableDictionary* dictionary = [NSMutableDictionary dictionary];
             for (int i = 0;i < arFieldsKeys.count; i++){

@@ -88,7 +88,7 @@
  @param conditionsValue 筛选条件的值
  @return 返回所有查询到的key value
  */
-+(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(NSString* )conditionsValue;
++(NSArray<NSDictionary* >* )selectFromTable:(NSString* )tableName arFieldsKeys:(NSArray<NSString* >* )arFieldsKeys conditionsKey:(NSString* )conditionsKey conditionsValue:(id)conditionsValue;
 
 
 /**
