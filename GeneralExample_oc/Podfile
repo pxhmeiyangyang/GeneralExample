@@ -8,7 +8,8 @@ target 'GeneralExample' do
   # Pods for GeneralExample
 
     pod 'FMDB', '2.7.2' #使用固定版本2.7.2
-
+    
+    pod 'WHC_ModelSqliteKit/SQLCipher'
   target 'GeneralExampleTests' do
     inherit! :search_paths
     # Pods for testing
