@@ -17,6 +17,7 @@
 		F142E5A620E0F10900C8F64D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F142E5A420E0F10900C8F64D /* LaunchScreen.storyboard */; };
 		F142E5B120E0F10900C8F64D /* GeneralExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142E5B020E0F10900C8F64D /* GeneralExampleTests.swift */; };
 		F142E5BC20E0F10900C8F64D /* GeneralExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142E5BB20E0F10900C8F64D /* GeneralExampleUITests.swift */; };
+		F142E5CB20E0FB8D00C8F64D /* WCDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142E5CA20E0FB8D00C8F64D /* WCDBManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		F142E5B720E0F10900C8F64D /* GeneralExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeneralExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F142E5BB20E0F10900C8F64D /* GeneralExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExampleUITests.swift; sourceTree = "<group>"; };
 		F142E5BD20E0F10900C8F64D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F142E5CA20E0FB8D00C8F64D /* WCDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WCDBManager.swift; sourceTree = "<group>"; };
 		F6F14C48ABE1AD29F86031B2 /* Pods-GeneralExampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GeneralExampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-GeneralExampleUITests/Pods-GeneralExampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -137,6 +139,7 @@
 		F142E59A20E0F10700C8F64D /* GeneralExample */ = {
 			isa = PBXGroup;
 			children = (
+				F142E5C920E0FB7900C8F64D /* DB */,
 				F142E59B20E0F10700C8F64D /* AppDelegate.swift */,
 				F142E59D20E0F10700C8F64D /* ViewController.swift */,
 				F142E59F20E0F10700C8F64D /* Main.storyboard */,
@@ -163,6 +166,14 @@
 				F142E5BD20E0F10900C8F64D /* Info.plist */,
 			);
 			path = GeneralExampleUITests;
+			sourceTree = "<group>";
+		};
+		F142E5C920E0FB7900C8F64D /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				F142E5CA20E0FB8D00C8F64D /* WCDBManager.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -460,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F142E59E20E0F10700C8F64D /* ViewController.swift in Sources */,
+				F142E5CB20E0FB8D00C8F64D /* WCDBManager.swift in Sources */,
 				F142E59C20E0F10700C8F64D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,7 +648,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -651,7 +666,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExample;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -667,7 +685,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -684,7 +706,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExampleTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExampleTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -700,7 +726,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -716,7 +746,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GeneralExampleUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yunzhisheng.GeneralExampleUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
