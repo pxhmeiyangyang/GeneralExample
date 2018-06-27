@@ -58,10 +58,29 @@ class WCDBManager{
     class func insertOrReplace<T: TableCodable>(table: T,tableType: T.Type){
         update(table: tableType)
         do {
-            let tableName = String(describing: table)
+            let tableName = String(describing: tableType)
             try dataBase.insertOrReplace(objects: [table], intoTable: tableName)
         } catch {
             
+        }
+    }
+    
+    class func deleteObject<T: TableCodable>(table: T.Type,condition : Condition) {
+        do {
+            let tableName = String(describing: table)
+            try dataBase.delete(fromTable: tableName, where: condition, orderBy: nil, limit: nil, offset: nil)
+        } catch  {
+            
+        }
+    }
+    
+    class func getObjects<T: TableCodable>(table: T.Type,condition : Condition)->[T]?{
+        do {
+            let tableName = String(describing: table)
+            let objects : [T] = try dataBase.getObjects(on: table.Properties.all, fromTable: tableName, where: condition, orderBy: nil, offset: nil)
+            return objects
+        } catch {
+            return nil
         }
     }
     
